@@ -1,4 +1,4 @@
-
+//ベースマップの追加
 var attribution = new ol.Attribution({
     html: 'Tiles © <a href="https://maps.gsi.go.jp/development/ichiran.html#std">国土地理院</a>'
   });
@@ -30,6 +30,7 @@ var baseLayer = new ol.layer.Group({
   ]
 });
 
+//レイヤの指定
 var format_refugefirststage = new ol.format.GeoJSON();
 var features_refugefirststage = format_refugefirststage.readFeatures(geojson_refugefirststage,
             {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
@@ -51,6 +52,8 @@ jsonSource_flood_assumed_area.addFeatures(features_flood_assumed_area);var lyr_f
             });
 
 lyr_refugefirststage.setVisible(true);lyr_flood_assumed_area.setVisible(true);
+
+//以下の順を入れ替えると描画順が変わる
 var layersList = [baseLayer,lyr_flood_assumed_area,lyr_refugefirststage];
 
 lyr_flood_assumed_area.set('fieldAliases', {'SAUID': 'ID', 'SAUPDATE': '更新日', 'SAFIELD000': '区分', 'SAFIELD001': '想定浸水深(m)', });
