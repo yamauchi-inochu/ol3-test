@@ -30,6 +30,16 @@ var baseLayer = new ol.layer.Group({
   ]
 });
 
+var format_refugefirststage = new ol.format.GeoJSON();
+var features_refugefirststage = format_refugefirststage.readFeatures(geojson_refugefirststage,
+            {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
+var jsonSource_refugefirststage = new ol.source.Vector();
+jsonSource_refugefirststage.addFeatures(features_refugefirststage);var lyr_refugefirststage = new ol.layer.Vector({
+                source:jsonSource_refugefirststage,
+                style: style_refugefirststage,
+                title: "一次避難所"
+            });
+
 var format_flood_assumed_area = new ol.format.GeoJSON();
 var features_flood_assumed_area = format_flood_assumed_area.readFeatures(geojson_flood_assumed_area,
             {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
@@ -38,14 +48,6 @@ jsonSource_flood_assumed_area.addFeatures(features_flood_assumed_area);var lyr_f
                 source:jsonSource_flood_assumed_area,
                 style: style_flood_assumed_area,
                 title: "想定浸水区域"
-            });var format_refugefirststage = new ol.format.GeoJSON();
-var features_refugefirststage = format_refugefirststage.readFeatures(geojson_refugefirststage,
-            {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
-var jsonSource_refugefirststage = new ol.source.Vector();
-jsonSource_refugefirststage.addFeatures(features_refugefirststage);var lyr_refugefirststage = new ol.layer.Vector({
-                source:jsonSource_refugefirststage,
-                style: style_refugefirststage,
-                title: "一次避難所"
             });
 
 lyr_flood_assumed_area.setVisible(true);lyr_refugefirststage.setVisible(true);
