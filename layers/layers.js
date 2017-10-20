@@ -51,7 +51,7 @@ jsonSource_flood_assumed_area.addFeatures(features_flood_assumed_area);var lyr_f
             });
 
 lyr_refugefirststage.setVisible(true);lyr_flood_assumed_area.setVisible(true);
-var layersList = [baseLayer,lyr_flood_assumed_area,lyr_refugefirststage];
+var layersList = [baseLayer,lyr_refugefirststage,lyr_flood_assumed_area];
 
 lyr_flood_assumed_area.set('fieldAliases', {'SAUID': 'ID', 'SAUPDATE': '更新日', 'SAFIELD000': '区分', 'SAFIELD001': '想定浸水深(m)', });
 lyr_refugefirststage.set('fieldAliases', {'SAFIELD003': '種別', 'SAFIELD004': '名称', 'SAFIELD005': '屋外・屋内', 'SAFIELD006': '住所', });
