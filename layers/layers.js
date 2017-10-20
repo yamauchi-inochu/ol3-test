@@ -50,7 +50,7 @@ jsonSource_flood_assumed_area.addFeatures(features_flood_assumed_area);var lyr_f
                 title: "想定浸水区域"
             });
 
-lyr_flood_assumed_area.setVisible(true);lyr_refugefirststage.setVisible(true);
+lyr_refugefirststage.setVisible(true);lyr_flood_assumed_area.setVisible(true);
 var layersList = [baseLayer,lyr_flood_assumed_area,lyr_refugefirststage];
 
 lyr_flood_assumed_area.set('fieldAliases', {'SAUID': 'ID', 'SAUPDATE': '更新日', 'SAFIELD000': '区分', 'SAFIELD001': '想定浸水深(m)', });
